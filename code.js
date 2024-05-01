@@ -2,19 +2,7 @@
 const races = []
 const charClasses = []
 
-//Dom Created Elements
-let welcome = document.createElement("h2")
-welcome.innerText = "Welcome to 5e Character Creation"
-let mainText = document.createElement("p")
-mainText.id = "mainText"
-let next = document.createElement("button")
-next.innerText= "Next"
-next.id = "nextButton"
-let previous = document.createElement("button")
-previous.innerText = "Prev"
-previous.id = "previousButton"
-let infoText = document.createElement("p")
-infoText.id = "infoText"
+
 
 //fetch Functions
 function storeRaces(data){
@@ -49,31 +37,21 @@ function stepOne(){
     welcome.innerText = "Step One: Choose Character Race"
     mainText.innerText = "In this step you will choose your character race. To see more details about a specific race please click on it"
     getRaces()
-    let i = 0
-    for(i in races){
-        if(races[i] === "dragonborn"){
-            let dragonborn = document.createElement("radio")
-            dragonborn.className = "race"
-            dragonborn.innerText = races[i]
-            document.body.append(dragonborn)
-        } else if(races[i] === "dwarf"){
-            let dwarf = document.createElement("radio")
-            dwarf.className = "race"
-            dwarf.innerText  = races[i]
-            document.body.append(dwarf) 
-        }else if(races[i] === "elf"){
-            let elf = document.createElement("radio")
-            elf.className = "race"
-            elf.innerText = races[i]
-            document.body.append(elf)
-        }
-    }
-    document.body.append(previous)
-    document.body.append(next)
+    document.body.append(radioDragonborn)
+    document.body.append(radioDragonbornLabel)  
+    document.lastChild.append(previous)
+    document.lastChild.append(next)
 }
 
 stepZero()
 
 next.addEventListener("click",function(){
     stepOne()
+},{once:true})
+
+radioDragonborn.addEventListener("click",function(){
+    fetch(racesURL+"/dragonborn")
+    .then(response => response.json())
+    .then(data => {
+    console.log(data)})
 })
