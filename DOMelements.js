@@ -15,3 +15,5 @@ let radioDragonborn = document.createElement("input")
 radioDragonborn.setAttribute("type", "radio")
 let radioDragonbornLabel = document.createElement("label")
 radioDragonbornLabel.innerText="Dragonborn"
+let racesDropDown = document.createElement("select")
+racesDropDown.id = "races"
