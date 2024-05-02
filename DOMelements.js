@@ -11,6 +11,5 @@ previous.innerText = "Prev"
 previous.id = "previousButton"
 let infoText = document.createElement("p")
 infoText.id = "infoText"
-radioDragonbornLabel.innerText="Dragonborn"
 let racesDropDown = document.createElement("select")
 racesDropDown.id = "races"
